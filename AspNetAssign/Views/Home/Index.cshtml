@@ -1,0 +1,23 @@
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@using AspNetAssign.Models
+@model IEnumerable<Student>
+
+<h1>Students And Courses</h1>
+<table>
+    <tr>
+        <th>
+            <a asp-action="Index" asp-route-sortOrder="@ViewBag.StudentSort">
+                Students
+            </a>
+        </th>
+        <th>
+            <a asp-action="Index" asp-route-sortOrder="@ViewBag.CourseSort">
+                Courses
+            </a>
+        </th>
+    </tr>
+    @foreach (Student u in Model)
+    {
+        <tr><td>@u.Name</td><td>@u.Course?.Name</td></tr>
+    }
+</table>
